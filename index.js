@@ -20,6 +20,7 @@ module.exports = function (source) {
     }
 
     const compiled = _.template(source);
+    const renderedView = compiled();
 
-    return 'module.exports = ' + JSON.stringify(compiled) + ';';
+    return 'module.exports = function() { return ' + JSON.stringify(renderedView) + '; };';
 };

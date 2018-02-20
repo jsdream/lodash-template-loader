@@ -1,6 +1,6 @@
 {
   "name": "lodash-simple-template-loader",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Lodash template loader for Webpack",
   "main": "index.js",
   "scripts": {
