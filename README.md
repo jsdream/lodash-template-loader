@@ -1,7 +1,8 @@
 # lodash-template-loader
 Lodash template loader for Webpack.
 
-This is tiny webpack loader which wraps lodash `_.template()` to render templates during webpack build. 
+This is tiny webpack loader which wraps lodash `_.template()` to render templates during webpack build.
+This loader outputs fully rendered string (HTML) without bundling lodash.
 Global data for templates (views) is passed using `imports` property of loader options object.
 
 Other available options:
@@ -12,7 +13,7 @@ Other available options:
 ### Install
 
 ```sh
-$ npm i lodash-template-loader --save
+$ npm i lodash-simple-template-loader --save
 ```
 
 ### Usage
@@ -27,7 +28,7 @@ module: {
                 loader: 'apply-loader'
             },
             {
-                loader: 'lodash-template-loader',
+                loader: 'lodash-simple-template-loader',
                 options: {
                     imports: { // data object which will be passed to templates for rendering
                         title: 'Hello World!'

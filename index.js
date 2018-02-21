@@ -6,17 +6,17 @@ const loaderUtils = require('loader-utils');
 module.exports = function (source) {
     const options = loaderUtils.getOptions(this) || {};
 
-    if (_.isRegExp(_.templateSettings.escape)) {
+    _.templateSettings.imports = _.isObject(options.imports) ? options.imports : {};
+    _.templateSettings.imports._ = _;
+
+    if (_.isRegExp(options.escape)) {
         _.templateSettings.escape = options.escape;
     }
-    if (_.isRegExp(_.templateSettings.evaluate)) {
+    if (_.isRegExp(options.evaluate)) {
         _.templateSettings.evaluate = options.evaluate;
     }
-    if (_.isRegExp(_.templateSettings.interpolate)) {
+    if (_.isRegExp(options.interpolate)) {
         _.templateSettings.interpolate = options.interpolate;
-    }
-    if (_.isObject(options.imports)) {
-        _.templateSettings.imports = options.imports;
     }
 
     const compiled = _.template(source);
